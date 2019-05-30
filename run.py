@@ -61,7 +61,6 @@ class Game(object):
             self.screen.blit(self.background, (self.rel_x, 0))
         self.x -= 1.0
         pygame.display.update()
-        pygame.display.flip
 
         self.rel_c = self.x % self.podloga.get_rect().width
         self.screen.blit(self.podloga, (self.rel_c - self.podloga.get_rect().width, 750))
@@ -69,7 +68,6 @@ class Game(object):
             self.screen.blit(self.podloga, (self.rel_c, 0))
         self.c -= 1.0
         pygame.display.update()
-        pygame.display.flip
 
 if __name__ == "__main__":
     Game()
