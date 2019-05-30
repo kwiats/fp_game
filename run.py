@@ -47,7 +47,6 @@ class Game(object):
             punkty += 1
             i.scoreCounter(int(punkty))
             pygame.display.update()
-            pygame.display.flip
             self.clock.tick(FPS)
 
     def tick(self):

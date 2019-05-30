@@ -8,4 +8,5 @@ BLUE=(0, 0, 255)
 
 class Obstacle:
     def __init__(self):
-        pass
+        self.obs1 = pygame.image.load('walls2.png').convert()
+        self.obs2 = pygame.image.load('walls3.png').convert()
