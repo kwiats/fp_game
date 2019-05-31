@@ -12,9 +12,9 @@ class Obstacle:
         self.obs2 = pygame.image.load('walls3.png').convert()
 
     def draw(self):
-        self.display = pygame.display.get_surface()
-        self.display.blit(self.obs1,0,0)
-        self.display.blit(self.obs2,0,0)
+        display = pygame.display.get_surface()
+        display.blit(self.obs1,(0,0))
+        display.blit(self.obs2,(0,0))
 
     def do(self):
         self.draw()
