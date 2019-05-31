@@ -2,6 +2,7 @@ import pygame
 import player
 import interface
 import coins
+import obstacle
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -13,6 +14,7 @@ FPS = 60
 g = player.Player()
 i = interface.Interface()
 c = coins.Coins()
+obs = obstacle.Obstacle()
 
 class Game(object):
     def __init__(self):
@@ -41,6 +43,7 @@ class Game(object):
             self.mapa()
             g.do()
             c.do()
+            obs.do()
             pygame.display.update()
             punkty = 0
             # pygame.time.delay(1000)
