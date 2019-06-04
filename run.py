@@ -46,7 +46,6 @@ class Game(object):
             obs.do()
             pygame.display.update()
             punkty = 0
-            # pygame.time.delay(1000)
             punkty += 1
             i.scoreCounter(int(punkty))
             pygame.display.update()

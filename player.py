@@ -7,7 +7,7 @@ GREEN=(0, 255, 0)
 RED=(255, 0, 0)
 BLUE=(0, 0, 255)
 
-class Player():
+class Player(pygame.sprite.Sprite):
     def __init__(self ):
         self.speed = 0.7
         self.gravity = 1.9
@@ -15,6 +15,43 @@ class Player():
         self.position = Vector2(15, 300)
         self. acc = Vector2(0, 0)
         self.clock = pygame.time.Clock()
+
+        super(Player, self).__init__()
+
+        self.images = []
+        self.images.append(pygame.image.load('sprite/drone (1).png'))
+        self.images.append(pygame.image.load('sprite/drone (2).png'))
+        self.images.append(pygame.image.load('sprite/drone (3).png'))
+        self.images.append(pygame.image.load('sprite/drone (4).png'))
+        self.images.append(pygame.image.load('sprite/drone (5).png'))
+        self.images.append(pygame.image.load('sprite/drone (6).png'))
+        self.images.append(pygame.image.load('sprite/drone (7).png'))
+        self.images.append(pygame.image.load('sprite/drone (8).png'))
+        self.images.append(pygame.image.load('sprite/drone (9).png'))
+        self.images.append(pygame.image.load('sprite/drone (10).png'))
+        self.images.append(pygame.image.load('sprite/drone (11).png'))
+        self.images.append(pygame.image.load('sprite/drone (12).png'))
+        self.images.append(pygame.image.load('sprite/drone (13).png'))
+        self.images.append(pygame.image.load('sprite/drone (14).png'))
+        self.images.append(pygame.image.load('sprite/drone (15).png'))
+        self.images.append(pygame.image.load('sprite/drone (16).png'))
+        self.images.append(pygame.image.load('sprite/drone (17).png'))
+        self.images.append(pygame.image.load('sprite/drone (18).png'))
+        self.images.append(pygame.image.load('sprite/drone (19).png'))
+        self.images.append(pygame.image.load('sprite/drone (20).png'))
+        self.images.append(pygame.image.load('sprite/drone (21).png'))
+        self.images.append(pygame.image.load('sprite/drone (22).png'))
+        self.images.append(pygame.image.load('sprite/drone (23).png'))
+        self.images.append(pygame.image.load('sprite/drone (24).png'))
+
+
+
+        self.index = 0
+
+        self.image = self.images[self.index]
+
+        self.rect = pygame.Rect(5, 5, 150, 198)
+
 
     def keys(self):
         pressed = pygame.key.get_pressed()
@@ -31,9 +68,14 @@ class Player():
         self.acc *= 0
 
     def draw(self):
-        self.drone = pygame.image.load('drone.gif').convert()
+        self.index += 1
+
+        if self.index >= len(self.images):
+            self.index = 0
+
+        self.image = self.images[self.index]
         display = pygame.display.get_surface()
-        display.blit(self.drone, (self.position.x, self.position.y))
+        display.blit(self.image, (self.position.x, self.position.y))
         pygame.display.update()
 
     def text_objects(self, text, font , color):

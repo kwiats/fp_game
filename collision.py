@@ -17,4 +17,10 @@ class Collisions:
     def __init__(self):
         pass
     def test(self):
+        if player.is_collision_with(obstacle):
+            return done = False
+        if player.is_collision_with(coins):
+            return 5
+        while not player.is_collision_with(obstacle):
+            return 1
         pass

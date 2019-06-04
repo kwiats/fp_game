@@ -21,10 +21,10 @@ class Obstacle:
         self.obs2 = pygame.transform.scale(self.obs2, (500, 200))
         self.display = pygame.display.get_surface()
         self.positionx = self.x % self.display.get_rect().width
-        self.display.blit(self.obs1, ((self.positionx - self.display.get_rect().width), 600))
+        self.display.blit(self.obs1, ((self.positionx - self.display.get_rect().width), 550))
         self.display.blit(self.obs2, ((self.positionx - self.display.get_rect().width), 0))
         if self.positionx < 640:
-            self.display.blit(self.obs1, (self.positionx,600))
+            self.display.blit(self.obs1, (self.positionx,550))
             self.display.blit(self.obs2, (self.positionx,0))
         self.x -= 4.0
 

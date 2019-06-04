@@ -7,6 +7,11 @@ GREEN=(0, 255, 0)
 RED=(255, 0, 0)
 BLUE=(0, 0, 255)
 
+
+def yRandCord():
+    yCord = None
+    yCord = [random.randint(450,510) for i in range(10)]
+
 class Coins():
 
     coin = None
@@ -19,7 +24,6 @@ class Coins():
     i = 0
 
     def __init__(self):
-        self.ilosc_coins = 255
         self.x = 0
         self.koszyk = []
         self.distance = 640
@@ -39,12 +43,10 @@ class Coins():
         self.positionx = self.x % self.display.get_rect().width
         self.yRandCord()
         self.positiony = random.choice(self.randPosition)
-        #self.sleep(7)
         self.display.blit(self.coin,((self.positionx - self.display.get_rect().width),self.positiony))
         print(self.positiony)
         if self.positionx < 640:
             self.positiony = random.choice(self.randPosition)
-            #self.sleep(7)
             self.display.blit(self.coin, (self.positionx, self.positiony))
             self.randPosition.clear()
         self.x -= 4.0
