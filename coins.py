@@ -11,29 +11,42 @@ class Coins():
 
     coin = None
     display = None
-    randPosition = []
+
     positionx = 0
     ilosc_coins = 0
     koszk = []
     y = None
-    myPosition = random.randint(10, 750)
+    i = 0
 
     def __init__(self):
         self.ilosc_coins = 255
         self.x = 0
         self.koszyk = []
-        self.i = 1
+        self.distance = 640
+        self.clock = pygame.time.Clock()
+
+    def yRandCord(self):
+        self.randPosition = []
+        for yCord in range(1, 3):
+            self.randPosition.append(random.randint(10, 750))
+            print(self.randPosition)
+
 
     def draw(self):
         self.coin = pygame.image.load('coin.png').convert()
         self.coin = pygame.transform.scale(self.coin, (50, 50))
         self.display = pygame.display.get_surface()
-        self.randPosition.append(self.myPosition)
         self.positionx = self.x % self.display.get_rect().width
-        self.display.blit(self.coin,(self.positionx - self.display.get_rect().width,self.randPosition[0]))
+        self.yRandCord()
+        self.positiony = random.choice(self.randPosition)
+        #self.sleep(7)
+        self.display.blit(self.coin,((self.positionx - self.display.get_rect().width),self.positiony))
+        print(self.positiony)
         if self.positionx < 640:
-            self.display.blit(self.coin, (self.positionx, self.randPosition[0]))
-        self.randPosition.clear()
+            self.positiony = random.choice(self.randPosition)
+            #self.sleep(7)
+            self.display.blit(self.coin, (self.positionx, self.positiony))
+            self.randPosition.clear()
         self.x -= 4.0
 
     def do(self):
